@@ -24,7 +24,7 @@ SRCEX		=
 SRC			=	$(filter-out $(SRCEX), $(filter %.c, $(shell ls)))
 OBJECTS		=	$(addprefix $(BUILDDIR)/, $(SRC:%.c=%.o))
 
-LIBLINK		=	-lvect -lfmt -lcl -lft -lqlex
+LIBLINK		=	-lvect -lgnl -lfmt -lcl -lft -lqlex
 LIBDIRS		:=	$(patsubst -l%, lib%, $(LIBLINK))
 LIBS		:=	$(addsuffix .a, $(LIBDIRS))
 LDFLAGS		:=	$(addprefix -L, $(LIBDIRS))

@@ -1,26 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   rt_cl_interface.h                                  :+:      :+:    :+:   */
+/*   rt_ray_send.cl                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: qle-guen <qle-guen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/02/08 07:55:11 by qle-guen          #+#    #+#             */
-/*   Updated: 2017/02/08 11:49:13 by qle-guen         ###   ########.fr       */
+/*   Created: 2017/02/08 07:50:15 by qle-guen          #+#    #+#             */
+/*   Updated: 2017/02/08 07:50:16 by qle-guen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef RT_CL_INTERFACE_H
-# define RT_CL_INTERFACE_H
+#include "rt_cl_interface.h"
 
-# include "rt_obj_types.h"
-
-typedef struct		s_obj
+kernel void
+	rt_ray_send
+	(global unsigned int *rays
+	, global t_obj *objs
+	, size_t nobjs)
 {
-	unsigned char	type;
-	double3			pos;
-	double			params[1];
-	void			*eq;
-}					t_obj;
+	size_t		x;
+	size_t		y;
+	double		ray_dir;
 
-#endif
+	x = get_local_id(0);
+	y = get_local_id(1);
+	printf("%lu %lu\n", x, y);
+	printf("%lu %d\n", nobjs, objs[0].type);
+}

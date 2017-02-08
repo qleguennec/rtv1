@@ -1,26 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   rt_cl_interface.h                                  :+:      :+:    :+:   */
+/*   rt_loop.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: qle-guen <qle-guen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/02/08 07:55:11 by qle-guen          #+#    #+#             */
-/*   Updated: 2017/02/08 11:49:13 by qle-guen         ###   ########.fr       */
+/*   Created: 2017/02/08 09:37:33 by qle-guen          #+#    #+#             */
+/*   Updated: 2017/02/08 12:43:52 by qle-guen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef RT_CL_INTERFACE_H
-# define RT_CL_INTERFACE_H
+#include "rt.h"
 
-# include "rt_obj_types.h"
-
-typedef struct		s_obj
+void
+	rt_loop
+	(t_rt *rt)
 {
-	unsigned char	type;
-	double3			pos;
-	double			params[1];
-	void			*eq;
-}					t_obj;
+	t_mlx	*mlx;
 
-#endif
+	if (!rt->update)
+		return ;
+	mlx = &rt->mlx;
+	if (!rt_cl_exec(rt))
+	{
+		ERR("opencl error", 0, 0);
+		rt_exit(mlx);
+	}
+	rt->update = 0;
+}

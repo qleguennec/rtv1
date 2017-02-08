@@ -1,28 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   rt_object.h                                        :+:      :+:    :+:   */
+/*   rt_obj.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: qle-guen <qle-guen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/08 07:15:53 by qle-guen          #+#    #+#             */
-/*   Updated: 2017/02/08 09:30:22 by qle-guen         ###   ########.fr       */
+/*   Updated: 2017/02/08 11:57:23 by qle-guen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef RT_OBJECT_H
-# define RT_OBJECT_H
+#ifndef RT_OBJ_H
+# define RT_OBJ_H
 
 # include "libft/types.h"
+# include "rt_obj_types.h"
 
-# define OBJECT_NEW(t, x, y, z) ((t_object){t, V3(x, y, z)})
+# include <OpenCL/opencl.h>
 
-# define OBJECT_TYPE_SPHERE 1
-
-typedef struct		s_object
+typedef struct		s_obj
 {
-	t_u32			type;
-	t_f64_v3		pos;
-}					t_object;
+	t_u8			type;
+	cl_double3		pos;
+	cl_double		params[1];
+}					t_obj;
 
 #endif

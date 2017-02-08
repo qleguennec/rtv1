@@ -1,26 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   rt_cl_interface.h                                  :+:      :+:    :+:   */
+/*   rt_obj_types.h                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: qle-guen <qle-guen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/02/08 07:55:11 by qle-guen          #+#    #+#             */
-/*   Updated: 2017/02/08 11:49:13 by qle-guen         ###   ########.fr       */
+/*   Created: 2017/02/08 11:12:46 by qle-guen          #+#    #+#             */
+/*   Updated: 2017/02/08 11:55:36 by qle-guen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef RT_CL_INTERFACE_H
-# define RT_CL_INTERFACE_H
+#ifndef RT_OBJ_TYPES_H
+# define RT_OBJ_TYPES_H
 
-# include "rt_obj_types.h"
-
-typedef struct		s_obj
-{
-	unsigned char	type;
-	double3			pos;
-	double			params[1];
-	void			*eq;
-}					t_obj;
+# define OBJ_CAMERA		1
+# define OBJ_SPHERE		2
 
 #endif

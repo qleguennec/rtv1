@@ -6,7 +6,7 @@
 /*   By: qle-guen <qle-guen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/08 09:03:43 by qle-guen          #+#    #+#             */
-/*   Updated: 2017/02/08 09:36:41 by qle-guen         ###   ########.fr       */
+/*   Updated: 2017/02/08 12:30:35 by qle-guen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,11 +52,17 @@ int
 {
 	t_rt	rt;
 
+	BZERO(rt);
 	if (!read_args(&rt, argc, argv))
 		return (ERR("usage: rt width height", 1, 0));
 	if (!rt_graphics_init(rt.size, &rt.mlx, "rtv1"))
 		return (ERR("mlx error", 1, 0));
 	if (!rt_events_init(&rt))
 		return (ERR("mlx error", 1, 0));
+	if (!rt_cl_init(&rt))
+		return (ERR("opencl error", 1, 0));
+	rt_obj_init(rt.size, &rt.scene.objs);
+	rt.update = 1;
+	mlx_loop(&rt.mlx);
 	return (0);
 }
