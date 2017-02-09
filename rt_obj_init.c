@@ -6,7 +6,7 @@
 /*   By: qle-guen <qle-guen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/08 11:23:56 by qle-guen          #+#    #+#             */
-/*   Updated: 2017/02/09 08:14:27 by qle-guen         ###   ########.fr       */
+/*   Updated: 2017/02/09 12:27:14 by qle-guen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,5 +34,6 @@ void
 	sphere.pos.x = size.x / 2.0;
 	sphere.pos.y = size.y / 2.0;
 	sphere.pos.z = 10;
+	sphere.radius = 3;
 	VECT_ADD(objs, sphere);
 }

@@ -18,10 +18,25 @@ kernel void
 	, global t_obj *objs
 	, size_t nobjs)
 {
-	size_t		x;
-	size_t		y;
+	double3		ray_origin;
 	double		ray_dir;
+	double		u;
+	double		v;
+	double3		delta;
+	double3		obj_dist;
+	t_obj		cam;
+	t_obj		sphere;
 
-	x = get_local_id(0);
-	y = get_local_id(1);
+	cam = objs[0];
+	sphere = objs[1];
+	u = cam.pos.x;
+	u -= 3 / WIDTH * u;
+	u += 0.5 + get_local_id(0);
+	u = cam.pos.y;
+	v -= 3 / HEIGHT * v;
+	v += 0.5 + get_local_id(1);
+	ray_origin = cam.pos;
+	ray_dir = - 10 * ray_origin.z + u * ray_origin.x + v * ray_origin.y;
+	obj_dist = ray_origin - sphere.pos;
+
 }

@@ -6,7 +6,7 @@
 /*   By: qle-guen <qle-guen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/08 07:55:11 by qle-guen          #+#    #+#             */
-/*   Updated: 2017/02/08 11:49:13 by qle-guen         ###   ########.fr       */
+/*   Updated: 2017/02/09 12:26:58 by qle-guen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,7 @@ typedef struct		s_obj
 {
 	unsigned char	type;
 	double3			pos;
-	double			params[1];
-	void			*eq;
+	double			radius;
 }					t_obj;
 
 #endif
