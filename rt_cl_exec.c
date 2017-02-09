@@ -6,7 +6,7 @@
 /*   By: qle-guen <qle-guen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/08 12:07:51 by qle-guen          #+#    #+#             */
-/*   Updated: 2017/02/08 13:24:09 by qle-guen         ###   ########.fr       */
+/*   Updated: 2017/02/09 09:38:37 by qle-guen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,19 +17,17 @@ static bool
 	(t_cl *cl
 	, t_vect *objs)
 {
-	t_i32	err;
+	t_i32	ret;
 
 	if (objs->used / sizeof(t_obj) == cl->nobjs)
 		return (true);
 	if (cl->nobjs)
 		clReleaseMemObject(cl->objs);
 	cl->nobjs = objs->used / sizeof(t_obj);
-	cl->objs = clCreateBuffer(cl->info.ctxt
-		, CL_MEM_COPY_HOST_PTR
-		, objs->used
-		, objs->data
-		, &err);
-	if (err != CL_SUCCESS)
+	cl->objs = clCreateBuffer(cl->info.ctxt, 0, objs->used, NULL, &ret);
+	if (ret != CL_SUCCESS)
+		return (false);
+	if (cl_write(&cl->info, cl->objs, objs->used, objs->data) != CL_SUCCESS)
 		return (false);
 	return (CL_KRL_ARG(cl->ray_send_krl.krl, 1, cl->objs) == CL_SUCCESS
 		&& CL_KRL_ARG(cl->ray_send_krl.krl, 2, cl->nobjs) == CL_SUCCESS);

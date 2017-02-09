@@ -6,7 +6,7 @@
 /*   By: qle-guen <qle-guen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/08 09:42:27 by qle-guen          #+#    #+#             */
-/*   Updated: 2017/02/08 12:41:04 by qle-guen         ###   ########.fr       */
+/*   Updated: 2017/02/09 08:48:02 by qle-guen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,8 @@ static void
 	FMT_VECT(build_line, "-D WIDTH=%a ", rt->size.x);
 	FMT_VECT(build_line, "-D HEIGHT=%a ", rt->size.y);
 	FMT_VECT(build_line, "-D AREA=%a ", rt->size.x * rt->size.y);
-	FMT_VECT(build_line, "-D WIDTH_2=%a ", rt->size.x / 2);
-	FMT_VECT(build_line, "-D HEIGHT_2=%a ", rt->size.y / 2);
+	FMT_VECT(build_line, "-D XCENTER=%a ", rt->size.x / 2);
+	FMT_VECT(build_line, "-D YCENTER=%a ", rt->size.y / 2);
 }
 
 bool

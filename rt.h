@@ -6,7 +6,7 @@
 /*   By: qle-guen <qle-guen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/08 07:20:18 by qle-guen          #+#    #+#             */
-/*   Updated: 2017/02/08 13:23:39 by qle-guen         ###   ########.fr       */
+/*   Updated: 2017/02/09 09:16:40 by qle-guen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,7 @@ typedef struct		s_rt
 }					t_rt;
 
 void				rt_exit(t_mlx *mlx);
-void				rt_loop(t_rt *rt);
+t_i32				rt_loop(t_rt *rt);
 
 /*
 ** graphics

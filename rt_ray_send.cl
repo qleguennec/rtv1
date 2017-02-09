@@ -24,6 +24,4 @@ kernel void
 
 	x = get_local_id(0);
 	y = get_local_id(1);
-	printf("%lu %lu\n", x, y);
-	printf("%lu %d\n", nobjs, objs[0].type);
 }

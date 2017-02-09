@@ -6,7 +6,7 @@
 /*   By: qle-guen <qle-guen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/08 08:51:10 by qle-guen          #+#    #+#             */
-/*   Updated: 2017/02/08 12:42:25 by qle-guen         ###   ########.fr       */
+/*   Updated: 2017/02/09 09:12:05 by qle-guen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ bool
 		, (t_i32 (*)(t_i32, void *))&rt_events_keyboard
 		, rt);
 	mlx_loop_hook(mlx->mlx
-		, (t_i32 (*)(void *))&rt_loop
+		, &rt_loop
 		, rt);
 	return (true);
 }

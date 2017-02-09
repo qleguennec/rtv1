@@ -6,7 +6,7 @@
 /*   By: qle-guen <qle-guen@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/02/08 09:03:43 by qle-guen          #+#    #+#             */
-/*   Updated: 2017/02/08 12:30:35 by qle-guen         ###   ########.fr       */
+/*   Updated: 2017/02/09 09:16:47 by qle-guen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,6 +63,6 @@ int
 		return (ERR("opencl error", 1, 0));
 	rt_obj_init(rt.size, &rt.scene.objs);
 	rt.update = 1;
-	mlx_loop(&rt.mlx);
+	mlx_loop(rt.mlx.mlx);
 	return (0);
 }
